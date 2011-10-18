@@ -1,10 +1,12 @@
 # Copyright 2010 Timothy Redaelli <timothy@redaelli.eu>               
 # Distributed under the terms of the GNU General Public License v2 
 
-SUMMARY="Software designed for downloads and uploads at hosting sites like rapidshare or megaupload"
+require googlecode [ suffix=tar.gz ]
 
+SUMMARY="Software designed for downloads and uploads at hosting sites like rapidshare or megaupload"
 HOMEPAGE="http://tucaneando.com/"
-DOWNLOADS="http://build-tucan-doc.googlecode.com/files/${PNV}.tar.gz http://forja.rediris.es/frs/download.php/1470/${PNV}.tar.gz"
+
+UPSTREAM_CHANGELOG="http://tucan.googlecode.com/hg/src/CHANGELOG [[ lang = en ]]"
 
 LICENCES="GPL-2"
 SLOT="0"
