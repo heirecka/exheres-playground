@@ -20,7 +20,8 @@ DEPENDENCIES="
         gtk? (
             gnome-bindings/pygtk
             gnome-desktop/librsvg
-        )"
+        )
+"
 
 BUGS_TO="heiko@shruuf.de"
 
@@ -29,7 +30,7 @@ src_compile() {
 }
 
 src_install() {
-    emake DESTDIR="${IMAGE}/usr" install
+    emake DESTDIR="${IMAGE}"/usr install
     # Broken symlink
     rm "${IMAGE}"/usr/bin/tucan
     ln -s /usr/share/tucan/tucan.py "${IMAGE}"/usr/bin/tucan
@@ -37,3 +38,4 @@ src_install() {
 
     option gtk || rm "${IMAGE}"/usr/share/applications/tucan.desktop
 }
+
