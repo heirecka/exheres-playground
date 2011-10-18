@@ -1,0 +1,29 @@
+# Copyright 2011 Heiko Becker <heiko@shruuf.de>
+# Distributed under the terms of the GNU General Public License v2
+
+SCM_REPOSITORY="http://git.sysphere.org/${PN}"
+
+require scm-git
+
+SUMMARY="A modular widget library for awesome, derived from the Wicked widget library."
+DESCRIPTION="It has some of the old Wicked widget types, a few of them rewritten, and a good number of new ones."
+HOMEPAGE="http://awesome.naquadah.org/wiki/Vicious"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    run:
+        x11-wm/awesome[>=3.4]
+"
+
+BUGS_TO="heiko@shruuf.de"
+
+src_install() {
+    insinto /usr/share/awesome/lib/${PN}
+    doins -r widgets helpers.lua init.lua
+    emagicdocs
+}
+
