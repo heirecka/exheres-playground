@@ -23,3 +23,5 @@ DEPENDENCIES="
         sys-devel/gettext[>=0.18.1]
 "
 
+BUGS_TO="heiko@shruuf.de"
+
