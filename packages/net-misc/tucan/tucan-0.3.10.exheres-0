@@ -32,10 +32,10 @@ src_compile() {
 src_install() {
     emake DESTDIR="${IMAGE}"/usr install
     # Broken symlink
-    rm "${IMAGE}"/usr/bin/tucan
-    ln -s /usr/share/tucan/tucan.py "${IMAGE}"/usr/bin/tucan
+    edo rm "${IMAGE}"/usr/bin/tucan
+    edo ln -s /usr/share/tucan/tucan.py "${IMAGE}"/usr/bin/tucan
     dodoc CHANGELOG README
 
-    option gtk || rm "${IMAGE}"/usr/share/applications/tucan.desktop
+    option gtk || edo rm -r "${IMAGE}"/usr/share/applications
 }
 
