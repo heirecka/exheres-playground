@@ -20,6 +20,8 @@ DEPENDENCIES="
             gnome-desktop/librsvg
         )"
 
+BUGS_TO="heiko@shruuf.de"
+
 src_compile() {
     :
 }
