@@ -1,0 +1,32 @@
+# Copyright 2011 Heiko Becker <heiko@shruuf.de>
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="A C library for encoding data in a QR code symbol"
+DESCRIPTION="QR codes are a kind of 2D symbology that can be scanned by handy terminals such as a
+mobile phone with CCD. The capacity of QR Code is up to 7000 digits or 4000 characters."
+HOMEPAGE="http://fukuchi.org/works/${PN}/"
+DOWNLOADS="${HOMEPAGE}${PNV}.tar.bz2"
+
+LICENCES="LGPL-2.1"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        dev-util/pkg-config
+    build+run:
+        media-libs/libpng
+"
+
+BUGS_TO="heiko@shruuf.de"
+
+src_configure() {
+    econf $(expecting_tests && echo '--with-tests')
+}
+
+src_test() {
+    edo cd tests
+    edo ./test_all.sh
+}
+
