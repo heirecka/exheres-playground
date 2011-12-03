@@ -1,0 +1,25 @@
+# Copyright 2011 Heiko Becker <heiko@shruuf.de>
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge [ project=libdmtx ]
+
+SUMMARY="dmtxread and dmtxwrite, the official command line interface for libdmtx"
+HOMEPAGE+="http://www.libdmtx.org/"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        dev-util/pkg-config
+    build+run:
+        media-gfx/ImageMagick[>=6.2.4]
+        media-libs/libdmtx[>=0.7.0]
+"
+
+BUGS_TO="heiko@shruuf.de"
+
+DEFAULT_SRC_INSTALL_EXCLUDE=( README.cygwin README.freebsd README.mingw README.osx README.unix )
+
