@@ -1,0 +1,17 @@
+# Copyright 2011 Heiko Becker <heiko@shruuf.de>
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge
+
+SUMMARY="${PN} is open source software for reading and writing Data Matrix barcodes"
+HOMEPAGE+="http://www.libdmtx.org/"
+
+LICENCES="BSD-2"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+BUGS_TO="heiko@shruuf.de"
+
+DEFAULT_SRC_INSTALL_EXCLUDE=( README.cygwin README.freebsd README.mingw README.osx README.unix )
+
