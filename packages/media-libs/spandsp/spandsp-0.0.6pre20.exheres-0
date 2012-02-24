@@ -1,0 +1,91 @@
+# Copyright 2012 Heiko Becker <heiko@shruuf.de>
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="SpanDSP is a library of DSP functions for telephony"
+DESCRIPTION="SpanDSP is a library of DSP functions for telephony, in the 8000 sample per
+second world of E1s, T1s, and higher order PCM channels. It contains low level
+functions, such as basic filters. It also contains higher level functions, such
+as cadenced supervisory tone detection, and a complete software FAX machine.
+The software has been designed to avoid intellectual property issues, using
+mature techniques where all relevant patents have expired."
+
+HOMEPAGE="http://www.soft-switch.org/"
+DOWNLOADS="${HOMEPAGE}downloads/${PN}/${PNV}.tgz"
+
+LICENCES="
+    LGPL-2.1
+    GPL-2 [[ note = [ test suite ] ]]
+"
+
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="
+    doc
+    platform: amd64
+    amd64_cpu_features: sse2 sse3
+    x86_cpu_features: mmx sse sse2 sse3"
+
+DEPENDENCIES="
+    build:
+        doc? (
+            app-doc/doxygen
+            dev-libs/libxslt
+        )
+    build+run:
+        media-libs/tiff
+    build+test:
+        dev-libs/libpcap
+        dev-libs/libxml2
+        media-libs/audiofile
+        media-libs/netpbm [[ description = [ pbmto3g is needed ] ]]
+        media-sound/sox
+        sci-libs/fftw
+        x11-libs/libX11
+        x11-libs/libXext
+        x11-libs/libXft
+"
+
+BUGS_TO="heiko@shruuf.de"
+
+WORK="${WORKBASE}"/${PN}-$(ever range 1-3)
+
+src_configure() {
+    local myconf=(
+        --enable-fixed-point
+        --disable-static
+        --hates=docdir
+        $(option_enable doc)
+        $(expecting_tests && echo --enable-tests)
+        $(option_enable amd64_cpu_features:sse2)
+        $(option_enable amd64_cpu_features:sse3)
+    )
+
+    # all amd64 cpus have mmx and sse
+    if option platform:amd64 || option x86_cpu_features:mmx ; then
+        myconf+=( --enable-mmx )
+    else
+        myconf+=( --disable-mmx )
+    fi
+    if option platform:amd64 || option x86_cpu_features:sse ; then
+        myconf+=( --enable-sse )
+    else
+        myconf+=( --disable-sse )
+    fi
+
+    econf "${myconf[@]}"
+}
+
+src_install() {
+    default
+
+    # clean up after the tests
+    edo rm -r "${IMAGE}"/usr/${LIBDIR}/libspandsp-sim*
+    edo rm "${IMAGE}"/usr/share/*.tif
+    edo rm "${IMAGE}"/usr/include/spandsp-sim.h
+    edo rm "${IMAGE}"/usr/include/spandsp/{g1050.h,line_model*.h,rfc2198_sim.h,test_utils.h}
+
+    if option doc; then
+        dodoc -r doc/{api/html/*,t38_manual}
+    fi
+}
+
