@@ -15,12 +15,13 @@ PLATFORMS="~amd64 ~x86"
 MYOPTIONS=""
 
 DEPENDENCIES="
+    build:
+        sys-devel/gettext[>=0.18.1]
     build+run:
         || (
             kde/kdebase-workspace
             kde/kde-workspace
         )
-        sys-devel/gettext[>=0.18.1]
 "
 
 BUGS_TO="heiko@shruuf.de"
