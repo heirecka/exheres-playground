@@ -11,7 +11,7 @@ DOWNLOADS="http://www.kde-look.org/CONTENT/content-files/${KDE_LOOK_ID}-${PNV}.t
 
 LICENCES="GPL-3"
 SLOT="0"
-PLATFORMS="~amd64 ~x86"
+PLATFORMS="~amd64"
 MYOPTIONS=""
 
 DEPENDENCIES="
