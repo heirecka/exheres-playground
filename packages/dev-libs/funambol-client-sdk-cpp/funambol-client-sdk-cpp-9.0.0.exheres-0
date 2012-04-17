@@ -1,0 +1,25 @@
+# Copyright 2012 Heiko Becker <heiko@shruuf.de>
+# Distributed under the terms of the GNU General Public License v2
+
+MY_PN="funambol-client-sdk"
+
+require sourceforge [ suffix=zip project=funambol pn=${MY_PN} ] \
+    autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.11 ] ]
+
+SUMMARY="C++ part of Funambol SDK providing tools to develop new syncml clients"
+HOMEPAGE="http://www.forge.funambol.org/"
+
+LICENCES="AGPL-3"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        net-misc/curl
+"
+
+BUGS_TO="heiko@shruuf.de"
+
+WORK="${WORKBASE}"/Funambol/sdk/cpp/build/autotools
+
