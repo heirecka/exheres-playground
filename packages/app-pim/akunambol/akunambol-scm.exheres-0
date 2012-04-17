@@ -1,0 +1,29 @@
+# Copyright 2012 Heiko Becker <heiko@shruuf.de>
+# Distributed under the terms of the GNU General Public License v2
+
+SCM_REPOSITORY="git://anongit.kde.org/${PN}"
+
+require scm-git kde
+
+SUMMARY="A KDE SyncML client for your Akonadi Storage"
+HOMEPAGE="http://akunambol.ruphy.org/"
+DOWNLOADS=""
+
+LICENCES="|| ( AGPL-3 GPL-2 )"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="likeback [[ description = [ Display buttons to provide feedback to upstream developers ] ]]"
+
+DEPENDENCIES="
+    build+run:
+        dev-libs/funambol-client-sdk-cpp
+        kde/kdelibs:4
+        kde/kdepimlibs:4
+        server-pim/akonadi
+        likeback? ( dev-libs/likeback ) 
+"
+
+BUGS_TO="heiko@shruuf.de"
+
+CMAKE_SRC_CONFIGURE_OPTION_WITHS=( 'likeback LikeBack' ) # Package unwritten
+
