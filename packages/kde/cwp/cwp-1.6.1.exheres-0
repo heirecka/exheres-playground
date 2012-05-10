@@ -18,10 +18,7 @@ DEPENDENCIES="
     build:
         sys-devel/gettext[>=0.18.1]
     build+run:
-        || (
-            kde/kdebase-workspace
-            kde/kde-workspace
-        )
+        kde/kde-workspace
 "
 
 BUGS_TO="heiko@shruuf.de"
