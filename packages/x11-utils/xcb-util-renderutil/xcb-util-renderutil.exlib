@@ -1,0 +1,20 @@
+# Copyright (c) 2007 Alexander Færøy <ahf@exherbo.org>
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="The X protocol C-language Bindings utilities; Modules: renderutil"
+HOMEPAGE="http://xcb.freedesktop.org/"
+DOWNLOADS="http://xcb.freedesktop.org/dist/${PNV}.tar.bz2"
+
+LICENCES="X11"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        dev-util/pkg-config[>=0.9]
+        x11-proto/xproto[>=7.0.8]
+    build+run:
+        x11-libs/libxcb[>=1.6]
+        x11-utils/xcb-util[>=${PV}]
+"
+
