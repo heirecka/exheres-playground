@@ -40,8 +40,8 @@ src_install() {
     default
 
     if option doc; then
-        insinto /usr/share/doc/${PNVR}
-        doins -r "${WORK}"/doc/api/html
+        docinto html
+        dodoc "${WORK}"/doc/api/html/*
     fi
 }
 
