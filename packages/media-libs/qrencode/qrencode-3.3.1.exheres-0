@@ -10,11 +10,12 @@ DOWNLOADS="${HOMEPAGE}${PNV}.tar.bz2"
 LICENCES="LGPL-2.1"
 SLOT="0"
 PLATFORMS="~amd64"
-MYOPTIONS=""
+MYOPTIONS="doc"
 
 DEPENDENCIES="
     build:
         dev-util/pkg-config
+        doc? ( app-doc/doxygen )
     build+run:
         media-libs/libpng
 "
@@ -30,10 +31,20 @@ src_test() {
     edo ./test_all.sh
 }
 
+src_compile() {
+    default
+
+    if option doc; then
+        edo doxygen Doxyfile
+    fi
+}
+
 src_install() {
     default
 
-    # remove static lib which gets build even with --disable-static
-    edo rm "${IMAGE}"/usr/${LIBDIR}/libqrencode.la
+    if option doc; then
+        docinto html
+        dodoc "${WORK}"/html/*
+    fi
 }
 
