@@ -17,7 +17,9 @@ DEPENDENCIES="
         dev-util/pkg-config
         doc? ( app-doc/doxygen )
     build+run:
-        media-libs/libpng
+        media-libs/libpng [[ description = [ needed for tools and tests ] ]]
+    test:
+        media-libs/SDL[>=1.2.0]
 "
 
 BUGS_TO="heiko@shruuf.de"
