@@ -1,7 +1,7 @@
 # Copyright 2011 Heiko Becker <heiko@shruuf.de>
 # Distributed under the terms of the GNU General Public License v2
 
-require freedesktop-mime googlecode [ suffix=tar.gz ]
+require freedesktop-desktop googlecode [ suffix=tar.gz ]
 
 SUMMARY="${PN} is a command-line program to download MP3 files from Amazon's music store"
 DESCRIPTION="It's intended to serve as a substitute for Amazon's official MP3 Downloader, which is
@@ -26,6 +26,7 @@ DEPENDENCIES="
 BUGS_TO="heiko@shruuf.de"
 
 pkg_postinst() {
+    freedesktop-desktop_pkg_postinst
     einfo "To enable the \"MP3 downloader\" mode in Amazon's web store visit:"
     einfo "http://www.amazon.com/gp/dmusic/after_download_manager_install.html?AMDVersion=1.0.9"
     einfo "You can then proceed to download purchased MP3 songs or albums."
