@@ -7,7 +7,7 @@ language and based on XCB library client library. Any existing window manager ca
 it implements properly EWMH and ICCCM specifications (or at least parts of it which are needed),
 which is generally the case nowadays."
 HOMEPAGE="http://projects.mini-dweeb.org/projects/${PN}"
-DOWNLOADS="http://projects.mini-dweeb.org/attachments/download/105/${PNV}.tar.gz"
+DOWNLOADS="http://projects.mini-dweeb.org/attachments/download/111/${PNV}.tar.gz"
 
 LICENCES="GPL-3"
 SLOT="0"
