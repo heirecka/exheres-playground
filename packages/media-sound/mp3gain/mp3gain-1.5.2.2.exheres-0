@@ -14,7 +14,7 @@ Also, the changes MP3Gain makes are completely lossless. There is no quality los
 because the program adjusts the mp3 file directly, without decoding and re-encoding.
 "
 
-REMOTE_IDS="freshmeat:${PN}"
+REMOTE_IDS="freecode:${PN}"
 
 LICENCES="LGPL-2.1"
 SLOT="0"

@@ -11,7 +11,7 @@ This framework offers a class foundation that hides platform differences from yo
 so that you need not write platform specific code. GNU Common can also be used to construct
 embedded applications as part of GNU Telephony Open Embedded."
 
-REMOTE_IDS="freshmeat:${PN}"
+REMOTE_IDS="freecode:${PN}"
 
 LICENCES="GPL-2"
 SLOT="0"
