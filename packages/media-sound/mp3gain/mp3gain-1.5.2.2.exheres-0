@@ -25,7 +25,7 @@ DEPENDENCIES=""
 
 BUGS_TO="heiko@shruuf.de"
 
-WORK="${WORKBASE}"
+WORK=${WORKBASE}
 
 src_install() {
     dobin mp3gain

@@ -47,7 +47,7 @@ DEPENDENCIES="
 
 BUGS_TO="heiko@shruuf.de"
 
-WORK="${WORKBASE}"/${PN}-$(ever range 1-3)
+WORK=${WORKBASE}/${PN}-$(ever range 1-3)
 
 src_configure() {
     local myconf=(
