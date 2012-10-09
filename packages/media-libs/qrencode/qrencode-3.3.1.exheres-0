@@ -1,4 +1,4 @@
-# Copyright 2011 Heiko Becker <heiko@shruuf.de>
+# Copyright 2012 Heiko Becker <heiko@shruuf.de>
 # Distributed under the terms of the GNU General Public License v2
 
 SUMMARY="A C library for encoding data in a QR code symbol"
@@ -24,9 +24,7 @@ DEPENDENCIES="
 
 BUGS_TO="heiko@shruuf.de"
 
-src_configure() {
-    econf $(expecting_tests && echo '--with-tests')
-}
+DEFAULT_SRC_CONFIGURE_TESTS=( --with-tests )
 
 src_test() {
     edo cd tests
